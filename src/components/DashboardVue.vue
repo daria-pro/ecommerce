@@ -197,10 +197,41 @@
                   <v-card-text class="mt-n4">
                     <strong :class="hover ? 'red--text' : 'black--text'">{{clothe.title}}</strong>
                   </v-card-text>
+                  <v-expand-transition>
+                    <div v-if="hover" class="d-flex transition-fast-in-fast-out blue v-card--reveal display-3 white--text" style="height: 100%;">
+                      <v-btn rounded color="white">
+                        <v-icon>mdi-cart-outlined</v-icon>
+                        Buy
+                      </v-btn>
+                      <v-btn fab small color="white" class="ml-2">
+                        <v-icon color="black">mdi-content-copy</v-icon>
+                      </v-btn>
+                      <v-btn fab small color="white" class="ml-2">
+                        <v-icon color="black">mdi-heart-outline</v-icon>
+                      </v-btn>
+                    </div>
+                  </v-expand-transition>
                 </v-card>
               </v-hover>
             </v-col>
           </v-row>
+        </v-col>
+        <v-col cols="12" sm="3" class="mt-n3 pr-0 pb-0">
+          <v-toolbar flat outlined>
+          </v-toolbar>
+        </v-col>
+        <v-col cols="12" sm="3" class="mt-n3 px-0 pb-0">
+          <v-toolbar flat outlined>
+            <v-btn icon class="mr-1">
+              <v-icon color='grey'>mdi-chevron-up</v-icon>
+            </v-btn>
+            <v-divider vertical></v-divider>
+          </v-toolbar>
+        </v-col>
+        <v-col cols="12" sm="3" class="mt-n3 px-0 pb-0">
+          <v-toolbar flat outlined class="text-center">
+            <v-pagination v-model="page" :length="4"></v-pagination>
+          </v-toolbar>
         </v-col>
       </v-row>
     </v-card>
@@ -402,7 +433,7 @@ export default {
   justify-content: center;
   opacity: .5;
   position: absolute;
-  widows: 100%;
+  width: 100%;
 }
 .card1 {
   z-index: 10;
